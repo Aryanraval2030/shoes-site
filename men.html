@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        header {
+            height: 90px;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(82, 85, 90) 0px 0px 0px 1px inset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 0 10px;
+            position: fixed;
+            top: 0;
+            z-index: 111;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        ul>li {
+            list-style: none;
+        }
+
+        li>a {
+            text-decoration: none;
+            color: rgb(3, 3, 3);
+        }
+
+        .logo {
+            font-size: 25px;
+            color: rgb(161, 138, 9);
+            font-weight: bold;
+        }
+
+        #nav-select {
+            border: none;
+            text-transform: uppercase;
+        }
+
+        .nav-btn {
+            margin-right: 4px;
+            padding: 2px 5px;
+            background: black;
+            color: white;
+            border-radius: 5px;
+            transition-duration: 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid rgb(91, 5, 5);
+        }
+
+        .search {
+            border: 2px solid black;
+            border-radius: 3px;
+            padding-left: 4px;
+            height: 23px;
+        }
+
+        /*  */
+
+        .drop-m li {
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            padding: 10px;
+            position: absolute;
+            z-index: 9;
+            top: 55px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .dropdown li {
+            padding: 10px 0;
+        }
+
+        .contect {
+            font-size: 17px;
+        }
+
+        .contect:hover {
+            color: rgb(144, 176, 28);
+        }
+
+        .drop-m:hover .dropdown {
+            display: block;
+            font-size: 17px;
+        }
+
+        .drop-m li a:hover {
+            color: rgb(144, 176, 28);
+        }
+
+        .icon {
+            display: none;
+        }
+
+        @media(min-width:1200px) {
+            header {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width:1000px) {
+            .menu {
+                display: none;
+            }
+
+            header {
+                justify-content: space-between;
+            }
+
+            .inputs {
+                display: none;
+            }
+
+            .icon {
+                display: block;
+            }
+        }
+
+        /* slider-section */
+        .section-slider {
+            margin-top: 90px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 0 10px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            overflow-x: scroll;
+        }
+
+        .slideres {
+            height: 350px;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        @media (min-width:768px) and (max-width:1023px) {
+            .slideres {
+                min-height: 380px;
+            }
+        }
+
+        @media (max-width: 768px) and (min-width:576px) {
+            .slideres {
+                min-height: 270px;
+            }
+        }
+
+        @media (max-width:576px) {
+            .slideres {
+                height: 250px;
+            }
+        }
+
+        /* section-1 */
+
+        .sec-1 {
+            margin-top: 90px;
+            margin-bottom: 100px;
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+        }
+
+        .sec-1-boxes {
+            height: 100%;
+            width: 50%;
+        }
+
+        .sec-1-img {
+            padding: 0 70px;
+            border-radius: 10px;
+            height: 100%;
+            width: 99%;
+            display: flex;
+            justify-self: center;
+            transition-duration: 0.3s;
+        }
+
+        .sec-1-img:hover {
+            transform: scale(1.1);
+        }
+
+        .sec-1-1-info {
+            padding-top: 30px;
+            padding-left: 20px;
+        }
+
+        .sec-1-1-info>p {
+            font-size: 20px;
+            padding: 3px 0;
+        }
+
+        .sec-1-1-info>h1 {
+            color: rgb(89, 78, 15);
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .sec-1-1-info>button {
+            padding: 10px 30px;
+            font-size: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            transition-duration: 0.6s;
+            border: 2px solid black;
+        }
+
+        .sec-1-1-info>button:hover {
+            background-color: rgb(94, 2, 2);
+            color: white;
+        }
+
+        .inr-img-1 {
+            border-radius: 10px;
+            height: 100%;
+            background: #020024;
+            background: linear-gradient(159deg, rgb(200, 199, 208) 29%, rgb(160, 160, 231) 54%, rgb(223, 236, 252) 100%);
+            width: 99%;
+        }
+
+        @media (max-width:767px) {
+            .sec-1 {
+                display: block;
+                text-align: center;
+            }
+
+            .sec-1-boxes {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* section-2 */
+        .sec-2 {
+            margin-top: 90px;
+            margin-bottom: 100px;
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+        }
+
+        .sec-2-boxes {
+            height: 100%;
+            width: 50%;
+        }
+
+        .sec-2-img {
+            padding: 0 70px;
+            border-radius: 10px;
+            height: 100%;
+            width: 99%;
+            display: flex;
+            justify-self: center;
+            transition-duration: 0.3s;
+        }
+
+        .sec-2-img:hover {
+            transform: scale(1.1);
+        }
+
+        .sec-2-1-info {
+            padding-top: 30px;
+            padding-left: 20px;
+        }
+
+        .sec-2-1-info>p {
+            font-size: 20px;
+            padding: 3px 0;
+        }
+
+        .sec-2-1-info>h1 {
+            color: rgb(89, 78, 15);
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .sec-2-1-info>button {
+            padding: 10px 30px;
+            font-size: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            transition-duration: 0.6s;
+            border: 2px solid black;
+        }
+
+        .sec-2-1-info>button:hover {
+            background-color: rgb(94, 2, 2);
+            color: white;
+        }
+
+        .inr-img-1 {
+            border-radius: 10px;
+            height: 100%;
+            background: #020024;
+            background: linear-gradient(159deg, rgb(200, 199, 208) 29%, rgb(160, 160, 231) 54%, rgb(223, 236, 252) 100%);
+            width: 99%;
+        }
+
+        @media (max-width:767px) {
+            .sec-2 {
+                display: block;
+                text-align: center;
+            }
+
+            .sec-2-boxes {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* section-3 */
+        .sec-3 {
+            margin-top: 90px;
+            margin-bottom: 100px;
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+        }
+
+        .sec-3-boxes {
+            height: 100%;
+            width: 50%;
+        }
+
+        .sec-3-img {
+            padding: 0 70px;
+            border-radius: 10px;
+            height: 100%;
+            width: 99%;
+            display: flex;
+            justify-self: center;
+            transition-duration: 0.3s;
+        }
+
+        .sec-3-img:hover {
+            transform: scale(1.1);
+        }
+
+        .sec-3-1-info {
+            padding-top: 30px;
+            padding-left: 20px;
+        }
+
+        .sec-3-1-info>p {
+            font-size: 20px;
+            padding: 3px 0;
+        }
+
+        .sec-3-1-info>h1 {
+            color: rgb(89, 78, 15);
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .sec-3-1-info>button {
+            padding: 10px 30px;
+            font-size: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            transition-duration: 0.6s;
+            border: 2px solid black;
+        }
+
+        .sec-3-1-info>button:hover {
+            background-color: rgb(94, 2, 2);
+            color: white;
+        }
+
+        .inr-img-1 {
+            border-radius: 10px;
+            height: 100%;
+            background: #020024;
+            background: linear-gradient(159deg, rgb(200, 199, 208) 29%, rgb(160, 160, 231) 54%, rgb(223, 236, 252) 100%);
+            width: 99%;
+        }
+
+        .s-3-im-1 {
+            background: linear-gradient(159deg, rgb(114, 89, 89) 29%, rgb(42, 42, 49) 54%, rgb(40, 45, 51) 100%);
+        }
+
+        @media (max-width:767px) {
+            .sec-3 {
+                display: block;
+                text-align: center;
+            }
+
+            .sec-3-boxes {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* section-3 */
+        .sec-4 {
+            margin-top: 90px;
+            margin-bottom: 100px;
+            width: 100%;
+            padding: 0 20px;
+            display: flex;
+        }
+
+        .sec-4-boxes {
+            height: 100%;
+            width: 50%;
+        }
+
+        .sec-4-img {
+            padding: 0 70px;
+            border-radius: 10px;
+            height: 100%;
+            width: 99%;
+            display: flex;
+            justify-self: center;
+            transition-duration: 0.3s;
+        }
+
+        .sec-4-img:hover {
+            transform: scale(1.1);
+        }
+
+        .sec-4-1-info {
+            padding-top: 30px;
+            padding-left: 20px;
+        }
+
+        .sec-4-1-info>p {
+            font-size: 20px;
+            padding: 3px 0;
+        }
+
+        .sec-4-1-info>h1 {
+            color: rgb(89, 78, 15);
+            font-weight: bold;
+            font-size: 30px;
+        }
+
+        .sec-4-1-info>button {
+            padding: 10px 30px;
+            font-size: 15px;
+            margin-top: 10px;
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            transition-duration: 0.6s;
+            border: 2px solid black;
+        }
+
+        .sec-4-1-info>button:hover {
+            background-color: rgb(94, 2, 2);
+            color: white;
+        }
+
+        .inr-img-1 {
+            border-radius: 10px;
+            height: 100%;
+            background: #020024;
+            background: linear-gradient(159deg, rgb(200, 199, 208) 29%, rgb(160, 160, 231) 54%, rgb(223, 236, 252) 100%);
+            width: 99%;
+        }
+
+        .s-4-im-1 {
+            background: linear-gradient(159deg, rgb(114, 89, 89) 29%, rgb(42, 42, 49) 54%, rgb(40, 45, 51) 100%);
+        }
+
+        @media (max-width:767px) {
+            .sec-4 {
+                display: block;
+                text-align: center;
+            }
+
+            .sec-4-boxes {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* footer */
+
+        .footer {
+            height: 300px;
+            width: 100%;
+            background-color: black;
+            margin-top: 50px;
+            padding-top: 20px;
+            color: white;
+            line-height: 30px;
+        }
+
+        .footer-boxes {
+            height: 250px;
+            width: 33.5%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .ftr-inr {
+            height: 270px;
+            width: 100%;
+            display: flex;
+        }
+
+        .line-ftr {
+            border: 2px solid rgb(255, 255, 255);
+            margin: 0 20%;
+        }
+
+        .ftr-a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .Read-more {
+            color: white;
+        }
+
+        .last-box-ftr {
+            line-height: none;
+            padding: 0 5px;
+            text-align: start;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">SOLE ROYALE</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="./index.html" class="contect">HOME</a></li>
+                <ul class="drop-m">
+                    <li><a href="" class="select-name">COLLECTION</a></li>
+                    <ul class="dropdown">
+                        <li><a href="./men.html">MALE SHOES</a></li>
+                        <li><a href="./wom.html">FEMALE SHOES</a></li>
+                        <li><a href="">KID SHOES</a></li>
+                    </ul>
+                </ul>
+                <ul class="drop-m">
+                    <li><a href="" class="select-name">NEW ARRIVALS</a></li>
+                    <ul class="dropdown">
+                        <li><a href="">LUXURY SNEAKERS</a></li>
+                        <li><a href="">FORMAL COLLECTIONS</a></li>
+                        <li><a href="">TRENDING NOW</a></li>
+                        <li><a href="">BEST SELLERS</a></li>
+                    </ul>
+                </ul>
+                <li><a href="" class="contect">CONTECT</a></li>
+            </ul>
+            <div class="inputs">
+                <input type="search" class="search" placeholder="SEARCH HERE..">
+                <button class="nav-btn">SEARCH</button>
+                <a href=""><i class="fa-solid fa-user icon-proflie" style="color: #000000;"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping icon-cart" style="color: #000000;"></i></a>
+            </div>
+            <i class="fa-solid fa-bars icon"></i>
+
+        </nav>
+    </header>
+
+    <!--  sider-section-->
+
+    <div class="section-slider">
+        <div class="slideres">
+            <a href="">
+                <img src="https://www.campusshoes.com/cdn/shop/collections/MEN_Main_category_5_1512x.jpg?v=1733554753"
+                    alt="" height="100%" width="100%" title="Move Your Way">
+            </a>
+        </div>
+        <div class="slideres">
+            <a href="">
+                <img src="https://www.premierman.com/i/3d7995e4c0d2aac/original/PM_HP_090625_Slot_1a.jpg?impolicy=ad&im=Resize=3840;Crop=(0,0,3840,3840),gravity=NorthEast"
+                    alt="" height="100%" width="100%" title="fashion">
+            </a>
+        </div>
+        <div class="slideres">
+            <a href="">
+                <img src="https://img-cdn.publive.online/fit-in/640x430/filters:format(webp)/bmi/media/media_files/2025/03/17/6q6F8U7dAWjX78Ixt6Wm.jpg"
+                    alt="" height="100%" width="100%" title="bumrah shoes">
+            </a>
+        </div>
+    </div>
+    <!-- section-1 -->
+
+    <section class="sec-1">
+        <div class="sec-1-boxes">
+            <div class="inr-img-1">
+                <a href="">
+                    <img class="sec-1-img"
+                        src="c:\Users\SH\Downloads\b099fb20-34bf-49d5-b5c7-7a823ef7d1431687187822930Menblackformalpetantlaceupsderbyshoes1-removebg-preview.png"
+                        alt="" height="100%" width="100%">
+                </a>
+            </div>
+        </div>
+        <div class="sec-1-boxes sec-1-1-info">
+            <h1> Brand: UrbanWalk</h1>
+            <p>Type: Formal Lace-Up Derby Shoes</p>
+            <p>Color: Black</p>
+            <p>Material: Faux Leather Upper, TPR Sole</p>
+            <p>Insole: Soft Cushioned Footbed</p>
+            <p>Sizes Available: 6, 7, 8, 9, 10</p>
+            <p>MRP: ₹1,999  Now: ₹1,299 (35% OFF)</p>
+            <p>Delivery: Free Shipping | 7-Day Returns</p>
+            <button>Buy Now</button>
+        </div>
+    </section>
+
+    <!-- section-2 -->
+
+    <section class="sec-2">
+        <div class="sec-2-boxes sec-2-1-info">
+            <h1>Brand: FlexWalk</h1>
+            <p>Type: Sports Running Shoes</p>
+            <p>Color: White ,Black and Lightbrown</p>
+            <p>Material: Breathable Meshe</p>
+            <p>Insole: Soft Cushioned Footbed</p>
+            <p>Sizes Available: 6, 7, 8, 9, 10</p>
+            <p>MRP: ₹3,999  Now:</p>
+            <p>Delivery: Free Shipping | 7-Day Returns</p>
+            <button>Buy Now</button>
+        </div>
+        </div>
+        <div class="sec-2-boxes">
+            <div class="inr-img-1">
+                <a href="">
+                    <img class="sec-2-img sec-2-img-2"
+                        src="c:\Users\SH\Downloads\7132kiFYR1L._UY1000_-removebg-preview.png" alt="" height="100%"
+                        width="100%">
+                </a>
+            </div>
+    </section>
+
+    <!-- section-3 -->
+
+    <section class="sec-3">
+        <div class="sec-3-boxes">
+            <div class="inr-img-1 s-3-im-1">
+                <a href="">
+                    <img class="sec-3-img"
+                        src="c:\Users\SH\Downloads\8b050962-ce69-4ce9-bed9-4ee2dd678ba5-removebg-preview.png" alt=""
+                        height="100%" width="100%">
+                </a>
+            </div>
+        </div>
+        <div class="sec-3-boxes sec-3-1-info">
+            <h1>Brand: FlexWalk</h1>
+            <p>Type: Sports Running Shoes</p>
+            <p>Color: White with Blue Accents</p>
+            <p>Upper Material: Breathable Mesh</p>
+            <p>Insole: Soft Cushioned Footbed</p>
+            <p>Sizes Available: 6, 7, 8, 9, 10</p>
+            <p>MRP: ₹2,199  Offer Price: ₹1,399 (36% OFF)</p>
+            <p>Delivery: Free Shipping | 7-Day Returns</p>
+            <button>Buy Now</button>
+        </div>
+    </section>
+    <!-- shoes section -->
+    <section class="sec-4">
+        <div class="sec-4-boxes">
+            <div class="inr-img-1">
+                <a href="">
+                    <img class="sec-4-img"
+                        src="c:\Users\SH\Downloads\Frame_39233_d9666860-0b4a-4988-a4f6-0c508f84a258-removebg-preview.png"
+                        alt="Shoe Image" height="100%" width="100%">
+                </a>
+            </div>
+        </div>
+        <div class="sec-4-boxes sec-4-1-info">
+            <h1>Brand: StyleStep</h1>
+            <p>Type: Casual Sneakers</p>
+            <p>Color: Grey & White</p>
+            <p>Material: Canvas with Rubber Sole</p>
+            <p>Insole: Memory Foam</p>
+            <p>Sizes Available: 6, 7, 8, 9, 10, 11</p>
+            <p>MRP: ₹2,499  Now: ₹1,599 (36% OFF)</p>
+            <p>Delivery: Free Shipping | 7-Day Returns</p>
+            <button>Buy Now</button>
+        </div>
+    </section>
+
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="line-ftr"></div>
+        <div class="ftr-inr">
+            <div class="footer-boxes">
+                <h1><a class="ftr-a">Shop</a></h1>
+                <p><a class="ftr-a" href="">Men</a></p>
+                <p><a class="ftr-a" href="">Women</a></p>
+                <p><a class="ftr-a" href="">Kids</a></p>
+                <p><a class="ftr-a" href="">Accessories</a></p>
+            </div>
+            <div class="footer-boxes">
+                <h1>Help</h1>
+                <p><a class="ftr-a" href="">About Us</a></p>
+                <p><a class="ftr-a" href="">Contact Us</a></p>
+                <p><a class="ftr-a" href="">My Account</a></p>
+                <p><a class="ftr-a" href="">Store Locator</a></p>
+                <p><a class="ftr-a" href="">Store Expansion</a></p>
+                <p><a class="ftr-a" href="">FAQs</a></p>
+            </div>
+            <div class="footer-boxes">
+                <p id="last-box-ftr">Sign up now and be the first to know
+                    about exclusive offers, latest fashion
+                    news & style tips!
+                </p>
+                <a href="" class="Read-more">Read more</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        header {
+            height: 90px;
+            width: 100%;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(82, 85, 90) 0px 0px 0px 1px inset;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 0 10px;
+            position: fixed;
+            top: 0;
+            z-index: 111;
+            background-color: white;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+
+        }
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        ul>li {
+            list-style: none;
+        }
+
+        li>a {
+            text-decoration: none;
+            color: rgb(3, 3, 3);
+        }
+
+        .logo {
+            font-size: 25px;
+            color: rgb(161, 138, 9);
+            font-weight: bold;
+        }
+
+        #nav-select {
+            border: none;
+            text-transform: uppercase;
+        }
+
+        .nav-btn {
+            margin-right: 4px;
+            padding: 2px 5px;
+            background: black;
+            color: white;
+            border-radius: 5px;
+            transition-duration: 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid rgb(91, 5, 5);
+        }
+
+        .search {
+            border: 2px solid black;
+            border-radius: 3px;
+            padding-left: 4px;
+            height: 23px;
+        }
+
+        /*  */
+
+        .drop-m li {
+            position: relative;
+        }
+
+        .dropdown {
+            display: none;
+            padding: 10px;
+            position: absolute;
+            z-index: 9;
+            top: 55px;
+            background-color: rgb(255, 255, 255);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .dropdown li {
+            padding: 10px 0;
+        }
+
+        .contect {
+            font-size: 17px;
+        }
+
+        .contect:hover {
+            color: rgb(144, 176, 28);
+        }
+
+        .drop-m:hover .dropdown {
+            display: block;
+            font-size: 17px;
+        }
+
+        .drop-m li a:hover {
+            color: rgb(144, 176, 28);
+        }
+
+        .icon {
+            display: none;
+        }
+
+        @media(min-width:1200px) {
+            header {
+                justify-content: space-between;
+            }
+        }
+
+        @media (max-width:1000px) {
+            .menu {
+                display: none;
+            }
+
+            .icon {
+                display: block;
+            }
+
+            header {
+                justify-content: space-between;
+            }
+
+            .inputs {
+                display: none;
+            }
+        }
+
+        /* slider-section */
+        .section-slider {
+            margin-top: 95px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 0 10px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            overflow-x: scroll;
+        }
+
+        .slideres {
+            height: 340px;
+            flex-shrink: 0;
+            width: 100%;
+        }
+
+        @media (min-width:768px) and (max-width:1023px) {
+            .slideres {
+                min-height: 380px;
+            }
+        }
+
+        @media (max-width: 768px) and (min-width:576px) {
+            .slideres {
+                min-height: 270px;
+            }
+        }
+
+        @media (max-width:576px) {
+            .slideres {
+                height: 250px;
+            }
+        }
+
+        /* section-1 */
+        .section-1 {
+            margin-top: 10px;
+            height: 310px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            overflow-x: auto;
+            padding: 0 10px;
+        }
+
+        .main-sec {
+            height: 450px;
+            width: 100%;
+            margin-top: 100px;
+            padding: 0 50px;
+        }
+
+        .main-sec>h1 {
+            font-size: 25px;
+            color: rgb(0, 0, 0);
+            margin-left: 10px;
+        }
+
+        .box-shoes-s-1 {
+            height: 290px;
+            width: 230px;
+            flex-shrink: 0;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+            border: 2px solid white;
+            border-radius: 10px;
+            padding-left: 20px;
+            transition-duration: 0.4s;
+            padding-right: 13px;
+        }
+
+        .box-shoes-s-1:hover {
+            transform: scale(1.1, 1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .box-shoes-s-1-imgs {
+            margin-top: 5px;
+            height: 55%;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .shoes-info-scroll {
+            height: 40%;
+            padding-top: 10px;
+        }
+
+        .shoes-rating {
+            display: flex;
+        }
+
+        .sec-1-heading-name {
+            margin-top: 10px;
+            padding: 0 10px;
+        }
+
+        .more-info {
+            text-decoration: none;
+        }
+
+        .high-light {
+            font-weight: bold;
+        }
+
+        .btn-buy {
+            padding: 4px 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            color: white;
+            background-color: rgb(157, 18, 18);
+            border: none;
+            transition-duration: 0.1s;
+        }
+
+        .btn-buy:hover {
+            background-color: white;
+            color: red;
+            border: 1px solid black;
+        }
+
+        .img-1 {
+            display: flex;
+            justify-self: center;
+        }
+
+        @media (min-width:626px) and (max-width:681px) {
+            .box-shoes-s-1 {
+                min-height: 30vh;
+                max-width: 33.5%;
+            }
+
+            /* .bfr-inr-2 {
+                margin-top: 5%;
+            } */
+
+            .shoes-info-scroll {
+                font-size: 13px;
+            }
+
+            .btn-buy {
+                padding: 1px 3px;
+            }
+
+            .shoes-rating {
+                font-weight: none;
+            }
+
+            .high-light {
+                font-weight: none;
+                font-size: normal;
+            }
+        }
+
+        /* section-1-before */
+
+        .before-sec-1 {
+            width: 100%;
+            padding: 0 10px;
+            margin-bottom: 50px;
+            height: 600px;
+        }
+
+        .bfr-inr {
+            height: 50%;
+            width: 99%;
+            display: flex;
+            gap: 10px;
+        }
+
+        .sec-1-bfr-1 {
+            margin-bottom: 50px;
+            margin-bottom: 20px;
+        }
+
+        .bfr-inr-boxes {
+            width: 33.5%;
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+            border: 2px solid white;
+            border-radius: 10px;
+            transition-duration: 0.4s;
+        }
+
+        .bfr-inr-boxes:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(55, 14, 14, 0.3);
+        }
+
+        .bfr-img {
+            height: 55%;
+            width: 95%;
+            margin-top: 2px;
+            display: flex;
+            justify-self: center;
+            border-radius: 10px;
+        }
+
+        .bfr-img-info {
+            height: 45%;
+            width: 100%;
+            padding-left: 20px;
+            line-height: 23px;
+        }
+
+        .bfr-img-7 {
+            background-color: rgb(198, 148, 54);
+        }
+
+        .bfr-img-4 {
+            background-color: rgb(130, 119, 119);
+        }
+
+        .img-bfr {
+            background-color: rgb(255, 233, 243);
+        }
+
+        .bfr-img-2 {
+            background-color: rgb(170, 96, 96);
+        }
+
+        .bfr-img-3 {
+            background-color: rgb(141, 149, 29);
+        }
+
+        .bfr-img-5 {
+            background-color: #dd7474;
+        }
+
+        .bfr-img-6 {
+            background-color: rgb(128, 101, 10);
+        }
+
+        .sports-shoes {
+            padding: 10px 0;
+            font-size: 25px;
+            margin-left: 10px;
+        }
+
+        @media (min-width:812px) and (max-width:856px) {
+            .bfr-inr-boxes {
+                min-height: 50vh;
+                max-width: 33.5%;
+            }
+
+            .bfr-img {
+                min-height: 5vh;
+            }
+        }
+
+        @media (min-width:681px) and (max-width: 812px) {
+            .bfr-inr-2 {
+                margin-top: 5%;
+            }
+
+            .bfr-img-info {
+                font-size: 15px;
+            }
+
+            .bfr-img {
+                height: 15vh;
+            }
+
+            .btn-buy {
+                padding: 2px 5px;
+            }
+
+            .shoes-rating {
+                font-weight: none;
+            }
+
+            .high-light {
+                font-weight: none;
+                font-size: 10px;
+            }
+        }
+
+        @media(max-width:626px) {
+            .bfr-inr-boxes {
+                width: 33.5%;
+                height: 50vh;
+            }
+
+            .sec-1-bfr-1 {
+                overflow: scroll;
+            }
+
+            .bfr-inr {
+                overflow: scroll;
+            }
+        }
+
+        @media (min-width:626px) and (max-width:681px) {
+            .bfr-inr-boxes {
+                min-height: 30vh;
+                max-width: 33.5%;
+            }
+
+            .bfr-inr-2 {
+                margin-top: 5%;
+            }
+
+            .bfr-img-info {
+                font-size: 13px;
+            }
+
+            .bfr-img {
+                height: 13vh;
+            }
+
+            .btn-buy {
+                padding: 1px 3px;
+            }
+
+            .shoes-rating {
+                font-weight: none;
+            }
+
+            .high-light {
+                font-weight: none;
+                font-size: normal;
+            }
+        }
+
+        .sec-1-2 {
+            margin-top: 150px;
+        }
+
+
+        /* footer */
+
+        .footer {
+            /* height: 300px; */
+            width: 100%;
+            background-color: black;
+            margin-top: 50px;
+            padding-top: 20px;
+            color: white;
+            line-height: 30px;
+        }
+
+        .footer-boxes {
+            height: 250px;
+            width: 33.5%;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .ftr-inr {
+            height: 270px;
+            width: 100%;
+            display: flex;
+        }
+
+        .line-ftr {
+            border: 2px solid rgb(255, 255, 255);
+            margin: 0 20%;
+        }
+
+        .ftr-a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .Read-more {
+            color: white;
+        }
+
+        .last-box-ftr {
+            line-height: none;
+            padding: 0 5px;
+            text-align: start;
+            margin-top: 5px;
+        }
+
+        .ftr-last {
+            height: 90px;
+            width: 100%;
+            background-color: rgb(0, 0, 0);
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .link-ftr {
+            height: 80%;
+            width: 100px;
+            border-radius: 10px;
+        }
+
+        .link-2 {
+            padding: 0 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">SOLE ROYALE</div>
+        <nav>
+            <ul class="menu">
+                <li><a href="./index.html" class="contect">HOME</a></li>
+                <ul class="drop-m">
+                    <li><a href="" class="select-name">COLLECTION</a></li>
+                    <ul class="dropdown">
+                        <li><a href="./men.html">MALE SHOES</a></li>
+                        <li><a href="./wom.html">FEMALE SHOES</a></li>
+                        <li><a href="">KID SHOES</a></li>
+                    </ul>
+                </ul>
+                <ul class="drop-m">
+                    <li><a href="" class="select-name">NEW ARRIVALS</a></li>
+                    <ul class="dropdown">
+                        <li><a href="">LUXURY SNEAKERS</a></li>
+                        <li><a href="">FORMAL COLLECTIONS</a></li>
+                        <li><a href="">TRENDING NOW</a></li>
+                        <li><a href="">BEST SELLERS</a></li>
+                    </ul>
+                </ul>
+                <li><a href="" class="contect">CONTECT</a></li>
+            </ul>
+            <div class="inputs">
+                <input type="search" class="search" placeholder="SEARCH HERE..">
+                <button class="nav-btn">SEARCH</button>
+                <a href=""><i class="fa-solid fa-user icon-proflie" style="color: #000000;"></i></a>
+                <a href=""><i class="fa-solid fa-cart-shopping icon-cart" style="color: #000000;"></i></a>
+            </div>
+            <i class="fa-solid fa-bars icon"></i>
+
+        </nav>
+    </header>
+
+    <!--  sider-section-->
+
+    <div class="section-slider">
+        <div class="slideres">
+            <a href="">
+                <img src="https://neemans.com/cdn/shop/files/1920X800_Desktop_website_banner_7dc886d9-594e-4406-b1f9-10f3a44e20cd.jpg?v=1753360975&width=1500"
+                    alt="" height="100%" width="100%">
+            </a>
+        </div>
+        <div class="slideres">
+            <a href="">
+                <img src="https://neemans.com/cdn/shop/files/1920X800_-_Website_banner.jpg?v=1752941237&width=1500"
+                    alt="" height="100%" width="100%">
+            </a>
+        </div>
+        <div class="slideres">
+            <a href="">
+                <img src="https://neemans.com/cdn/shop/files/BWT_-_Desktop_Banner.jpg?v=1751290410&width=1500" alt=""
+                    height="100%" width="100%">
+            </a>
+        </div>
+    </div>
+
+    <!-- section-1 -->
+    <!-- section-1 -->
+
+    <div class="main-sec">
+        <h1>SNEAKERS SHOES :</h1>
+        <section class="section-1">
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(189, 143, 57); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-MSF-BlackPink-_WebOptimized_b_7f26a309-2bc4-48eb-8a35-cf07c3919f14.jpg?v=1724988115&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(159, 122, 53); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-MSF-Grey-_WebOptimized_a_c2da36dd-ca6d-4588-8dd1-dc3488abf691.jpg?v=1724988117&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(172, 175, 171); border-radius: 10px; padding: 10px 0;"
+                        src="c:\Users\SH\Downloads\ND-BE-Black_WebCatalog_a-removebg-preview.png" alt="" height="100%"
+                        width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(182, 199, 141); border-radius: 10px; padding-bottom: 20px;"
+                        src="c:\Users\SH\Downloads\ND_-_BE_-_Ivory_Web_Catalog_a-removebg-preview.png" alt=""
+                        height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(70, 100, 102); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-MSF-BlackGold-_WebOptimized_a_bc90b871-d39b-4522-b4e7-0ec543058e98.jpg?v=1724988100&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(69, 50, 14); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-GFS-Black-_WebOptimized_c_a5159236-6990-4b7c-a84c-5e563ca84920.jpg?v=1733920487&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(185, 138, 52); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND_-_CRB_-_Black_2_9f67a6a3-c77f-45ca-9842-a92b5557781f.jpg?v=1733920926&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(132, 130, 39); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-TB-Black-_WebOptimized_c_7f7f628d-7722-455d-8545-59831e0eedcd.jpg?v=1733919853&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(112, 103, 86); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND_-_KT_-_Ivory_Brown_Web_Catalog_d.jpg?v=1749649932&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="box-shoes-s-1">
+                <div class="box-shoes-s-1-imgs img-1">
+                    <img style="background-color: rgb(61, 50, 30); border-radius: 10px;"
+                        src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-SoleMaxSlipOn-UltraGreen-_WebOptimized_d_fc5d25a9-4067-43f0-a3ea-191e33fa25ab.jpg?v=1733920793&width=450"
+                        alt="" height="100%" width="100%">
+                </div>
+                <div class="shoes-info-scroll">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        sports sneaker
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- section-2 -->
+
+    <!-- section-1-before -->
+    <section class="before-sec-1">
+        <h1 class="sports-shoes">SPORTS SLIPER :</h1>
+        <div class="bfr-inr sec-1-bfr-1">
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img img-bfr"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-CK-Black_WebOptimized_b_66ac5c10-2cba-4882-8358-a6b7388360a8.jpg?v=1724937622&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-2"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND_-_ALF_-_Yellow_-_Web_Optimized_c_8fcadd66-e8c3-4f47-80a0-1166c9d4bd38.jpg?v=1724932498&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-ClassicSlippers-BasaltBrown-_WebOptimized_a.jpg?v=1724987545&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-3"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-ClassicSlippers-FusionBlue-_WebOptimized_a.jpg?v=1724987568&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND_-_CHSL_-_Black_Web_Optimized_a.jpg?v=1750036097&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="bfr-inr bfr-inr-2">
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-7"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND_-_FBW_-_Ivory_Brown_Web_Optimized_1_7e92f992-91ac-48d0-8ba5-59cf2d6e6a02.jpg?v=1724988013&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-6"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-BSW-Teal-_WebOptimized_4_0ab54566-e97e-4e2e-ae56-49b0727ced07.jpg?v=1724987477&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-5"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND-CHSL-Green_WebOptimized_c_b337fd1f-f65f-4125-9e6a-189ab83ec33b.jpg?v=1749558345&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-4"
+                    src="https://cdn.shopify.com/s/files/1/2428/5565/files/ND_-_FBW_-_Black_Web_Optimized_1_896e67b8-7da5-4c64-9b2f-d39478b30645.jpg?v=1724988013&width=450"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Sliper
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dwdad0f519/images/large/198739288544-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="before-sec-1 sec-1-2">
+        <div class="bfr-inr sec-1-bfr-1">
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img img-bfr"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dwabf18d75/images/large/196989710082-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-2"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dw6d147299/images/large/196642034838-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dw732d7e29/images/large/196311594625-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-3"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dw0ebf91bd/images/large/197976596412-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dwd41a3370/images/large/198376368852-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+        <div class="bfr-inr bfr-inr-2">
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-7"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dw510fc254/images/large/197976476783-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-6"
+                    src="https://www.skechers.in/on/demandware.static/-/Sites-skechers_india/default/dw5893dbf6/images/large/196642675369-1.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-5"
+                    src="https://assets.esdemarca.com/beta/var/images368/puma-zapatillas-extend-lite-trail-lila-37953815-3141067-a.jpg"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img bfr-img-4" src="https://m.media-amazon.com/images/I/61L6Eu9OnjL._UY1000_.jpg" alt=""
+                    height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 12000</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+            <div class="bfr-inr-boxes">
+                <img class="bfr-img" src="https://www.walkaroo.in/cdn/shop/files/WS3266-PURPLE-LADIES.jpg?v=1753512946"
+                    alt="" height="100%" width="100%">
+                <div class="bfr-img-info">
+                    <div class="shoes-rating">
+                        <p>4.2</p>&nbsp;
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star" style="color: #ff0000;"></i></p>
+                        <p><i class="fa-solid fa-star-half" style="color: #ff0000;"></i></p>&nbsp;&nbsp;
+                    </div>
+                    <p class="shoes-name high-light">
+                        Women Shoes
+                    </p>
+                    <a href="" class="more-info">more info</a>
+                    <p class="high-light">price : RS. 199</p>
+                    <button class="btn-buy">Buy Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+
+    <footer class="footer">
+        <div class="line-ftr"></div>
+        <div class="ftr-inr">
+            <div class="footer-boxes">
+                <h1><a class="ftr-a">Shop</a></h1>
+                <p><a class="ftr-a" href="">Men</a></p>
+                <p><a class="ftr-a" href="">Women</a></p>
+                <p><a class="ftr-a" href="">Kids</a></p>
+                <p><a class="ftr-a" href="">Accessories</a></p>
+            </div>
+            <div class="footer-boxes">
+                <h1>Help</h1>
+                <p><a class="ftr-a" href="">About Us</a></p>
+                <p><a class="ftr-a" href="">Contact Us</a></p>
+                <p><a class="ftr-a" href="">My Account</a></p>
+                <p><a class="ftr-a" href="">Store Locator</a></p>
+                <p><a class="ftr-a" href="">Store Expansion</a></p>
+                <p><a class="ftr-a" href="">FAQs</a></p>
+            </div>
+            <div class="footer-boxes">
+                <p id="last-box-ftr">Sign up now and be the first to know
+                    about exclusive offers, latest fashion
+                    news & style tips!
+                </p>
+                <a href="" class="Read-more">Read more</a>
+            </div>
+        </div>
+        <div class="ftr-last">
+            <div class="link-ftr">
+                <a href="">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt=""
+                        height="100%" width="100%">
+                </a>
+            </div>
+            <div class="link-ftr">
+                <a href="">
+                    <img class="link-2"
+                        src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Facebook_logo_%28square%29.png" alt=""
+                        height="100%" width="100%">
+                </a>
+            </div>
+            <div class="link-ftr">
+                <a href="">
+                    <img class="link-2"
+                        src="https://img.freepik.com/premium-vector/x-new-social-network-black-app-icon-twitter-rebranded-as-x-twitter-s-logo-was-changed_277909-568.jpg?semt=ais_hybrid&w=740&q=80"
+                        alt="" height="100%" width="100%">
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
